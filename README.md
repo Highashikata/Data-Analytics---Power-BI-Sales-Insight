@@ -9,3 +9,18 @@
 -  **End Result** : An automated dashboard providing quick & latest sales insights in order to support data driven decision making.
 
 -   **Success Criteria** : Dashboard uncovering sales order insights with the latest data available. Sales team able to take better decisions & prove 10% cost savings of total spend. Sales analysts stop data gathering manually in order to save 20% of their business time.
+
+
+##### Getting the Data
+
+After that we have downloaded the database from this link [https://codebasics.io/resources/sales-insights-data-analysis-project] (Giving credits to Codebasics), then we will download the database file **db_dump.sql** and import it into our MySQL Workbench.
+
+Now let's talk about the database:
+
+
+The Sales Database contains 5 tables:
+-  customers
+-  date
+-  markets
+-  products
+-  transactions
