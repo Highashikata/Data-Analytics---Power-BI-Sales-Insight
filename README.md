@@ -24,3 +24,8 @@ The Sales Database contains 5 tables:
 -  markets
 -  products
 -  transactions
+
+After that we've done some data wrangling using SQL to explore the data before importing it to POWER BI and clean it using Power Query.
+
+
+We have also exported all the 5 tables into CSV files for those who prefer to work with Excel as a datasource.
