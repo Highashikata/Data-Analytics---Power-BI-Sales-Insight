@@ -32,3 +32,35 @@ After that we've done some data wrangling using SQL to explore the data before i
 
 
 We have also exported all the 5 tables into CSV files for those who prefer to work with Excel as a datasource.
+
+
+##### Step 4 : Building the Report / DataViz Part
+
+For this part, we began by creating a Measures table in order to seperate them from the other columns.
+
+After that we create the main measures for our analysis and we create a new Calender Table in order to work with dates correctly using that script:
+
+
+```
+Calendrier = ADDCOLUMNS(
+    CALENDAR(DATE(2017,01,01), DATE(2023,12,31))
+    , "Year", YEAR([Date])
+    , "Quarter", QUARTER([Date])
+    , "Month Num", MONTH([Date])
+    , "Week Num", WEEKNUM([Date])
+    , "Week Day", WEEKDAY([Date])
+    , "Day", DAY([Date])
+
+
+    , "Month", FORMAT([Date], "Mmmm")
+    , "Week", FORMAT([Date], "dddd")
+    , "Quarter Number", "Q" & QUARTER([Date])
+    , "Year Month", YEAR([Date]) & " " & FORMAT([Date], "Mmmm")
+    , "Fiscal Year", YEAR(EDATE([Date], 11))
+    , "Fiscal Month", MONTH(EDATE([Date], 11))
+    , "Fiscal Quarter", QUARTER(EDATE([Date], 11))
+    , "Fiscal Week", WEEKNUM(EDATE([Date], 11))
+    )
+```
+
+
