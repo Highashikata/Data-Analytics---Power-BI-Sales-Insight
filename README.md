@@ -64,3 +64,48 @@ Calendrier = ADDCOLUMNS(
 ```
 
 
+##### Step 5 : Revision et amélioration 
+
+In this part we have created a Home page with buttons that send us to the different pages all over the report.
+And we have also added on every page unified syn slicers that gives us the possibility to filter on our graphics.
+After that we have created a table named TOP N Sales to select the Top N wanted number to sort through.
+
+Then we have created these bunch of measures:
+
+```
+TOP N Sales = 
+CALCULATE (
+    SUM ( Transactions[sales_amount] ),
+    TOPN (
+        SELECTEDVALUE ( 'TOP N Sales'[Nb Sales] ),
+        Transactions,
+        Transactions[sales_amount]
+    )
+)
+
+```
+
+```
+Titre Dynamique Top N sales = 
+COMBINEVALUES (
+    " ",
+    "TOP ",
+    SELECTEDVALUE ( 'TOP N Sales'[Nb Sales] ),
+    " Sales"
+)
+
+```
+
+```
+Achat mois précédent = 
+CALCULATE([REVENUE],PREVIOUSMONTH(Calendrier[Date]))
+
+```
+Here is the overview of the latest reports
+
+![Home page](https://github.com/Highashikata/Data-Analytics---Power-BI-Sales-Insight/assets/96960411/51f7d2dd-38a1-48b4-8258-1cd6d54858c3)
+![tableau analytics](https://github.com/Highashikata/Data-Analytics---Power-BI-Sales-Insight/assets/96960411/5db11694-3eaf-49c5-bba2-3581dd445d87)
+![sales per custms](https://github.com/Highashikata/Data-Analytics---Power-BI-Sales-Insight/assets/96960411/341335c7-a791-467b-a9a7-a545fb1c56c3)
+![revenue page](https://github.com/Highashikata/Data-Analytics---Power-BI-Sales-Insight/assets/96960411/cc77843a-6d27-4f25-8d2c-e0d637c716b2)
+
+
